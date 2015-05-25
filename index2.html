@@ -14,8 +14,11 @@
       li{
           color: black;
       }
-        .emphasis{
+       .emphasis li{
             color: coral;
+        }
+        .container{
+            color: green;
         }
     </style>
 </head>
@@ -25,9 +28,12 @@
         <p>
             On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.
         </p>
-        <ul>
+        <ul class="emphasis">
             <li>item</li>
             <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
             <li>
                  <ul>
                  <li>hell form the nest</li>
@@ -39,7 +45,14 @@
 <script>
     //$('ul.emphasis').children('li').css('color','green');
      //$('ul.emphasis').find('li').css('color','blue');
-    $('ul:first').children('li:first-child').addClass('emphasis');
+    /*$('ul:first').children('li:first-child').addClass('emphasis');*/
+    //$('ul.emphasis').children('li').first().addClass('emphasis');
+    //$('ul.emphasis').children('li:nth-child(2)').text('i am g33k');
+    //$('ul.emphasis').children('li').eq(1).text('i am g33k');
+   // $('ul.emphasis').children('li').eq(1).next().prev().text('i am g33k');
+   // $('li').parent('ul').removeClass('emphasis');
+   // $('li').parents('div.container').removeClass('container');
+    $('li').closest('div.container').removeClass('container');
 </script>
 
 
