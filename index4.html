@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h2>Click me ..</h2>
+<h2>Click me ..</h2>
+<h2>Click me ..</h2>
+<h2>Click me ..</h2>
+
+<script src="imports/jquery-1.11.3.js" ></script>
+<script>
+
+    (function(){
+      /*  $('h2').on('click')*/
+       /* $('h2').bind('click',function(){
+            console.log('clicked');
+        });*/
+       /* $('h2').bind('click',function(){
+            console.log('clicked');
+           var cloned = $(this).clone(true).appendTo('body');
+            *//*var cloned = $(this).clone();*//*
+            console.log(cloned);
+        });*/
+        $('h2').live('click',function(){
+            console.log('clicked');
+            var cloned = $(this).clone().appendTo('body');
+            /*var cloned = $(this).clone();*/
+            console.log(cloned);
+        });
+    })();
+</script>
+</body>
+</html>
