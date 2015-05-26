@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet"  href="imports/css/day.css">
+
+</head>
+<body>
+
+<h1>My website</h1>
+
+<button data-osama="day">Day</button>
+<button data-osama="night">Night</button>
+<script src="imports/jquery-1.11.3.js"></script>
+<script>
+
+    (function(){
+        var link = $('link');
+        $('button').click(function(){
+           // console.log(this);
+           // $(this).text('changed');
+
+           /* var uls = $('ul');
+            uls.click();
+            uls.find('li:first-child').text();*/
+
+        // var href =   $('link').attr('href');
+            /*var stylesheet = $(this).text().toLowerCase();
+            console.log(stylesheet);
+            $('link').attr('href','imports/css/'+stylesheet+'.css');*/
+/*
+            var stylesheet = $(this).attr('data-osama');
+*/          var $this = $(this);
+           // var stylesheet = $(this).data('osama');
+            var stylesheet = $this.data('osama');
+
+            link.attr('href','imports/css/'+stylesheet+'.css');
+
+         //   $this.siblings('button').removeAttr('disabled');
+            $this.siblings('button').removeAttr('disabled').end()
+                    .attr('disabled','disabled');
+
+            console.log(stylesheet);
+           // $this.attr('disabled','disabled');
+        });
+    })();
+
+</script>
+</body>
+</html>
