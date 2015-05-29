@@ -6,5 +6,40 @@
 </head>
 <body>
 
+<a href="http://google.com">Click me</a>
+
+
+
+<script src="imports/jquery-1.11.3.js"></script>
+<script>
+
+    var obj = {
+        doIt : function(e){
+            /*e.preventDefault();
+            console.log(e);
+            console.log(this)*/
+            e.preventDefault();
+            console.log(this);
+        }
+    };
+
+   // $('a').on('click',obj.doIt);
+   /* $('a').on('click',function(e){
+        //obj.doIt();
+        obj.doIt.call(this);
+        e.preventDefault();
+    });*/
+    $('a').on('click', $.proxy(obj.doIt,obj));
+   /* $('a').on('click',function(event){
+        event.preventDefault();
+        console.log(event);
+    });*/
+/*console.log(this);*/
+    /*function doSomething(){
+        console.log(this);
+    }
+    doSomething();*/
+
+</script>
 </body>
 </html>
