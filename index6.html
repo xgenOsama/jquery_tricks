@@ -109,9 +109,12 @@
         fadeToggle
         */
         config:{
-            effect : 'slideToggle'
+            effect : 'slideToggle',
+            speed : 500
         },
-        init:function(){
+        init:function(config){
+            /// override config object any thing in  config will overrided in this.config
+            $.extend(this.config, config);
             $('<button></button>',{
                 text: 'Contact Me'
             })
@@ -119,22 +122,32 @@
                     .on('click',this.show);
         },
         show:function(){
-           // contactForm.close.call(contactForm.container);
+            var cf = contactForm,
+                    container = cf.container,
+                    config = cf.config;
+            if(container.is(':hidden')){
+                contactForm.close.call(contactForm.container);
 //            contactForm.container.show();
-            contactForm.container[contactForm.config.effect](500);
+                container[contactForm.config.effect](config.speed);
+            }
         },
         close:function(){
             var $this = $(this); // div#contact
+
+            if($this.find('span.close').length) return;
             $('<span class="close">X</span>')
                     .prependTo($this)//'div#contact'
                     .on('click',function(){
                        /* $this.hide();*/
-                        $this[contactForm.config.effect](500);
+                        $this[contactForm.config.effect](contactForm.config.speed);
                     })
         }
     };
-        contactForm.init();
-        contactForm.close.call(contactForm.container);
+        contactForm.init({
+            effect: 'fadeToggle',
+            speed : 2000
+        });
+        /*contactForm.close.call(contactForm.container);*/
     })();
 </script>
 </body>
