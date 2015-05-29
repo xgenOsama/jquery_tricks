@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 400px;
+            background: darkred;
+            padding: 2em;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+   <div class="box">
+       <h2>Some content Here</h2>
+       <p>
+
+           Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature.
+
+       </p>
+   </div>
+   <p>
+       <button>Increase</button>
+   </p>
+<script src="imports/jquery-1.11.3.js"></script>
+<script>
+
+    (function(){
+
+      /*  var box = $('div.box'),
+                fontSize = parseInt(box.css('font-size'),10);
+       // console.log(fontSize+5);
+        $('button').on('click',function(){
+            box.css('font-size',fontSize+=1);
+        });*/
+        var box = $('div.box');
+                //fontSize = parseInt(box.css('font-size'),10);
+        // console.log(fontSize+5);
+        $('button').on('click',function(){
+          //  box.css('font-size','+=5').css('color','white');
+           /* box.css({
+                'font-size': '+=5',
+                'color' : 'white'
+            });*/
+
+
+//            box.animate({
+//                'font-size': '+=5',
+//                'width' : '+=100'
+//            },3000,'swing', function(){
+//                console.log('completed....');
+//            });  // swing ... linear
+
+
+
+
+            box.animate({
+                'fontSize' : '+=5'
+            },{
+                duration : 500,
+                complete : function(){
+                    console.log('completed ... ');
+                },
+                step : function (){
+                    console.log(('The current font-size is:'+$(this).css('fontSize')));
+                }
+            });
+        });
+
+
+    })();
+
+
+</script>
+</body>
+</html>
