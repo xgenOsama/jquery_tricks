@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Click me</h1>
+<div class="content">
+    <p>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+    </p>
+    <p>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+    </p>
+</div>
+
+<script src="imports/jquery-1.11.3.js"></script>
+<script>
+    (function(){
+        jQuery.fn.flash = function(speed, easing, callback) {
+            var $this = $(this);
+            return $this.slideDown(500 , function(){
+                $this.delay(4000).slideUp(500);
+                console.log('slide completed so this called');
+            });
+
+            /*
+             console.log('not slide completed');
+             */
+            //return this.animate(props, speed, easing, callback);
+        };
+        var content = $('div.content');
+        content.hide();
+        $('h1').on('click',function(){
+            content.flash();
+        });
+    })();
+</script>
+</body>
+</html>
